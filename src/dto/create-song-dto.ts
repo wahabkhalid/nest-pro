@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsDateString, IsMilitaryTime, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsArray, IsDateString, IsMilitaryTime, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 import { isTypedArray } from "util/types";
 
 export class CreateSongDTO{
@@ -11,8 +11,9 @@ export class CreateSongDTO{
     
     @IsArray() 
     //@Type(()=> String)
-    @IsString({ each: true }) 
-    readonly artists : string[];
+    //@IsString({ each: true })
+    @IsNumber({},{each : true}) 
+    readonly artists;
 
 
     @IsNotEmpty()

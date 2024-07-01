@@ -8,6 +8,8 @@ import { DevConfigService } from './common/providers/devConfigService';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
+import { UsersModule } from './users/users.module';
+import { ArtistsModule } from './artists/artists.module';
 
 
 const devConfig = {port : 3000};
@@ -25,7 +27,7 @@ const proConfig = {port : 400};
 
   })],*/
 
-  imports:[SongsModule, TypeOrmModule.forRoot(typeOrmConfig)],
+  imports:[SongsModule,UsersModule,ArtistsModule, TypeOrmModule.forRoot(typeOrmConfig)],
   controllers: [AppController],
   providers: [AppService,
     {
